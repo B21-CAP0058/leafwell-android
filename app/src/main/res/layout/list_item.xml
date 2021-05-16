@@ -15,12 +15,13 @@
         android:padding="10dp">
 
         <ImageView
+            android:id="@+id/iv_poster"
             android:layout_width="150dp"
             android:layout_height="180dp"
-            android:background="@color/blue"
             android:layout_marginBottom="4dp"/>
 
         <TextView
+            android:id="@+id/tv_title"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="title_goes_here"

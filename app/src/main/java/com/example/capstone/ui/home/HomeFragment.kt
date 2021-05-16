@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.capstone.databinding.FragmentHomeBinding
-import com.example.capstone.ui.SearchManualActivity
+import com.example.capstone.ui.searchmanual.SearchManualActivity
 
 class HomeFragment : Fragment() {
 
