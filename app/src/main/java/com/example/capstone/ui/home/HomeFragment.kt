@@ -23,15 +23,23 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        homeViewModel =ViewModelProvider(this).get(HomeViewModel::class.java)
+    ): View {
+        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+        try {
+            val message = requireArguments().getString("edittext")
+            if (message != null) {
+                //  txtMessageF.setText(message)
+            }
+        } catch (ex: Exception) {
+            ex.printStackTrace()
+        }
         binding.cvMenu1.setOnClickListener {
             val intent = Intent(context, SearchManualActivity::class.java)
             startActivity(intent)
         }
-        val root: View = binding.root
-        return root
+        return binding.root
 
 
     }
