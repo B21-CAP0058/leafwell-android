@@ -26,7 +26,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp"
         android:layout_gravity="center">
 
         <ImageView
@@ -41,19 +40,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="menu_1"
+            android:text="Manual \nSearch"
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_marginBottom="4dp"/>
 
-        <TextView
-            android:id="@+id/tv_desc1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Description Goes Here"
-            android:gravity="center_horizontal"
-            android:textSize="10sp"
-            android:layout_marginBottom="4dp"/>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
 
@@ -73,7 +64,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp"
             android:layout_gravity="center">
 
             <ImageView
@@ -88,18 +78,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="menu_2"
-                android:textSize="18sp"
+                android:text="Plant\nIdentification"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 android:layout_marginBottom="4dp"/>
 
-            <TextView
-                android:id="@+id/tv_desc2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Description Goes Here"
-                android:gravity="center_horizontal"
-                android:textSize="10sp"/>
 
         </LinearLayout>
 

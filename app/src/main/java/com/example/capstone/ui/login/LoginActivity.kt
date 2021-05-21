@@ -1,16 +1,19 @@
 @file:Suppress("DEPRECATION")
 
-package com.example.capstone.ui
+package com.example.capstone.ui.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.MutableLiveData
+import com.example.capstone.MainActivity
 import com.example.capstone.data.ApiConfig
 import com.example.capstone.data.UserRequest
 import com.example.capstone.data.UserResponse
 import com.example.capstone.databinding.ActivityLoginBinding
 import com.example.capstone.ui.home.HomeFragment
+import com.example.capstone.ui.register.RegisterActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,19 +32,28 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         clickButtonLogin()
+        register()
 
     }
 
+    private fun register() {
+        binding.tvSignUp.setOnClickListener{
+            startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
+        }
+    }
+
     private fun clickButtonLogin() {
-        binding.buttonSignIn.setOnClickListener {
-            loginUser()
+        binding.btnLogin.setOnClickListener {
+//            loginUser() //temporary disabled (remember to uncomment this)
+            startActivity(Intent(this@LoginActivity,MainActivity::class.java))
+            finish()
         }
     }
 
     private fun loginUser() {
         val req = UserRequest()
-        req.email = binding.editTextEmail.text.toString().trim()
-        req.password = binding.editTextPassword.text.toString().trim()
+        req.email = binding.etEmail.text.toString().trim()
+        req.password = binding.etPassword.text.toString().trim()
 
         if ((req.email.isNullOrEmpty()) || (req.password.isNullOrEmpty())) {
 
@@ -56,7 +68,7 @@ class LoginActivity : AppCompatActivity() {
                         Log.d(TAG, "Successful ${response.code()}")
 
                         try {
-                            val username = binding.editTextEmail.text.toString().trim()
+                            val username = binding.etEmail.text.toString().trim()
                             val bundle = Bundle()
                             bundle.putString("edittext", username)
                             val fragobj = HomeFragment()
@@ -68,7 +80,7 @@ class LoginActivity : AppCompatActivity() {
 
                         Log.d(
                             TAG,
-                            "Error jika tdk sukses adalah ${response.errorBody().toString()}"
+                            "Error: ${response.errorBody().toString()}"
                         )
                     }
                 }
