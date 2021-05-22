@@ -1,13 +1,12 @@
 package com.example.capstone.ui.camera
 
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageCapture
 import androidx.camera.core.ImageCaptureException
@@ -17,7 +16,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.example.capstone.R
 import com.example.capstone.databinding.ActivityCameraBinding
-import com.example.capstone.ui.camera.progress.ProgressFragment
+import com.example.capstone.ui.progress.ProgressFragment
 import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
@@ -58,13 +57,12 @@ class CameraActivity : AppCompatActivity() {
 
         //set up listener to take photo
         binding.btnTakePhoto.setOnClickListener {
-            //takePhoto() //Taking photo and saving picture funcion. Temorary disabled. Remember to uncomment it later
+            takePhoto() //Taking photo and saving picture funcion. Temorary disabled. Remember to uncomment it later
             Toast.makeText(this@CameraActivity,"Photo is taken",Toast.LENGTH_SHORT).show()
             supportFragmentManager.beginTransaction()
                 .setCustomAnimations(R.anim.anim_slide_in_up,R.anim.anim_slide_out_down)
                 .replace(R.id.fragment_container,progressFragment)
                 .commit()
-
         }
 
         outputDirectory = getOutputDirectory()
@@ -109,7 +107,6 @@ class CameraActivity : AppCompatActivity() {
                 override fun onError(exception: ImageCaptureException) {
                     Log.e(TAG, "Photo capture failed: ${exception.message}", exception)
                 }
-
             }
         )
     }

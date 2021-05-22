@@ -1,4 +1,4 @@
-package com.example.capstone.ui.camera.progress
+package com.example.capstone.ui.progress
 
 import android.animation.ObjectAnimator
 import android.content.Intent

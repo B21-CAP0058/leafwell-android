@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.capstone.databinding.FragmentHomeBinding
-import com.example.capstone.ui.camera.CameraActivity
+import com.example.capstone.ui.home.choicedialog.ChoiceFragment
 import com.example.capstone.ui.searchmanual.SearchManualActivity
 
 class HomeFragment : Fragment() {
@@ -27,7 +27,7 @@ class HomeFragment : Fragment() {
     ): View {
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-
+        val choiceFragment = ChoiceFragment()
         try {
             val message = requireArguments().getString("edittext")
             if (message != null) {
@@ -42,8 +42,9 @@ class HomeFragment : Fragment() {
         }
 
         binding.cvMenu2.setOnClickListener {
-            val intent = Intent(context, CameraActivity::class.java)
-        startActivity(intent)}
+            ChoiceFragment().show(requireActivity().supportFragmentManager,"ChoiceFragment")
+        }
+
         return binding.root
 
 
