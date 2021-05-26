@@ -2,18 +2,17 @@ package com.example.capstone.data
 
 
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
+
 
 
 interface LoginService {
 
     @FormUrlEncoded
-    @POST("login")
+    @POST("users/")
     fun userLogin(
-        @Body userReq : UserRequest
+      @Field("email") email : String,
+      @Field("username") username : String
     ): Call<UserResponse>
 
 

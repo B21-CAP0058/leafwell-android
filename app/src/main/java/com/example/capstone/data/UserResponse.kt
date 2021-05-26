@@ -1,12 +1,7 @@
 package com.example.capstone.data
 
-import com.google.gson.annotations.Expose
-import com.google.gson.annotations.SerializedName
+data class UserResponse (
 
-class UserResponse {
+  val user : User,
+) 
 
-    @SerializedName("data")
-    @Expose
-    var data : User? = null
-
-}
