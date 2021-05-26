@@ -14,6 +14,7 @@ class ApiConfig {
                 .addInterceptor(loggingInterceptor)
                 .build()
             val retrofit = Retrofit.Builder()
+
                 .baseUrl("http://api.larntech.net/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
@@ -34,5 +35,6 @@ class ApiConfig {
                 .build()
             return retrofit.create(SignUpService::class.java)
         }
+
     }
 }

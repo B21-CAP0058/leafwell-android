@@ -1,6 +1,5 @@
 package com.example.capstone.data
 
-
 import com.google.gson.annotations.SerializedName
 
 data class User(
@@ -24,3 +23,5 @@ data class User(
     @SerializedName("username")
     val username: String?
 )
+
+

@@ -12,6 +12,7 @@ class DetailActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_ID = "extra_id"
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         var isFavorite = false
         binding = ActivityDetailBinding.inflate(layoutInflater)

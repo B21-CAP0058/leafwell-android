@@ -36,6 +36,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun register() {
+
         binding.tvSignUp.setOnClickListener {
             startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
         }
@@ -91,8 +92,6 @@ class LoginActivity : AppCompatActivity() {
                 }
 
             })
-
-
 
     }
     override fun onStart() {
