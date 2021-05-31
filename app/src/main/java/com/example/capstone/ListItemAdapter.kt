@@ -7,18 +7,18 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
-import com.example.capstone.data.DummyEntity
+import com.example.capstone.data.source.local.entity.HerbListEntity
 import com.example.capstone.databinding.ListItemBinding
 import com.example.capstone.ui.detail.DetailActivity
 
 class ListItemAdapter: RecyclerView.Adapter<ListItemAdapter.ListItemViewHolder>() {
-    private var listItems = ArrayList<DummyEntity>()
+    private var listItems = ArrayList<HerbListEntity>()
     class ListItemViewHolder(private var binding: ListItemBinding):RecyclerView.ViewHolder(binding.root){
-        fun bind(item: DummyEntity) {
+        fun bind(item: HerbListEntity) {
             with(binding){
-                tvTitle.text = item.title
+                tvTitle.text = item.name
                  Glide.with(itemView)
-                     .load(item.posterPath)
+                     .load(item.image)
                      .transform(RoundedCorners(10))
                      .apply(RequestOptions.overrideOf(150,180))
                      .into(ivPoster)
@@ -26,14 +26,14 @@ class ListItemAdapter: RecyclerView.Adapter<ListItemAdapter.ListItemViewHolder>(
 
             itemView.setOnClickListener{
                 val intent = Intent(itemView.context, DetailActivity::class.java)
-                intent.putExtra(DetailActivity.EXTRA_ID,item.id.toString())
+                intent.putExtra(DetailActivity.EXTRA_ID,item.uuid)
                 itemView.context.startActivity(intent)
             }
         }
 
     }
 
-    fun setItem(items:List<DummyEntity>){
+    fun setItem(items:List<HerbListEntity>){
         if(items.isNullOrEmpty())return
         this.listItems.clear()
         this.listItems.addAll(items)

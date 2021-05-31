@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.capstone.MainActivity
-import com.example.capstone.data.ApiConfig
+import com.example.capstone.data.network.ApiConfig
 import com.example.capstone.data.SharedPrefManager
 import com.example.capstone.data.SignUpResponse
 import com.example.capstone.databinding.ActivityRegisterBinding
