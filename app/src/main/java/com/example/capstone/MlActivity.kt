@@ -61,18 +61,34 @@ class MlActivity : AppCompatActivity() {
             tfLiteHelper!!.classifyImage(bitmap!!)
             setLabel(tfLiteHelper!!.showresult())
             Log.d("Main Activity", tfLiteHelper!!.showresult().toString())
-            cocokLabel()
         }
     }
 
-    private fun cocokLabel() {
-        // tfLiteHelper.showresult() == kangkung
-    }
 
     private fun setLabel(entries: List<String?>?) {
         classitext!!.text = ""
         for (entry in entries!!) {
             classitext!!.append(entry)
+        }
+        cocokLabel(classitext!!.text as String)
+
+    }
+
+
+    private fun cocokLabel(a: String) {
+        when (a) {
+            "Kankung " -> {
+
+            }
+
+            "Something" ->{
+                
+            }
+
+            else -> {
+
+            }
+
         }
     }
 }
