@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.capstone.MlActivity
 import com.example.capstone.URIPathHelper
 import com.example.capstone.databinding.FragmentHomeBinding
 import com.example.capstone.ui.home.choicedialog.ChoiceFragment
@@ -51,7 +52,8 @@ class HomeFragment : Fragment() {
         }
 
         binding.cvMenu2.setOnClickListener {
-            ChoiceFragment().show(requireActivity().supportFragmentManager,"ChoiceFragment")
+//            ChoiceFragment().show(requireActivity().supportFragmentManager,"ChoiceFragment")
+            startActivity(Intent(context,MlActivity::class.java))
         }
 
         return binding.root

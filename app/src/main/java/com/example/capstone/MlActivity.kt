@@ -13,6 +13,8 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
+import com.example.capstone.ui.detail.DetailActivity
 import java.io.IOException
 
 
@@ -42,6 +44,7 @@ class MlActivity : AppCompatActivity() {
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(contentResolver, imageuri)
                 imageView!!.setImageBitmap(bitmap)
+                buclassify?.isEnabled = true
             } catch (e: IOException) {
                 e.printStackTrace()
             }
@@ -58,15 +61,33 @@ class MlActivity : AppCompatActivity() {
     }
     private var classifyImageListener = View.OnClickListener {
         if (bitmap != null) {
-            tfLiteHelper!!.classifyImage(bitmap!!)
-            setLabel(tfLiteHelper!!.showresult())
+            tfLiteHelper?.classifyImage(bitmap!!)
             Log.d("Main Activity", tfLiteHelper!!.showresult().toString())
             cocokLabel()
         }
     }
 
     private fun cocokLabel() {
-        // tfLiteHelper.showresult() == kangkung
+        var idResult = 0
+        var listResult:List<String>? = tfLiteHelper?.showresult()
+        if (listResult != null) {
+            when{
+                listResult.contains("Amaranthus Viridis (Arive-Dantu)") -> idResult=1
+                listResult.contains("Basella Alba (Basale)") -> idResult=2
+                listResult.contains("Ficus Auriculata (Roxburgh)") -> idResult=3
+                listResult.contains("Moringa Oleifera (Drumstick)") -> idResult=4
+                listResult.contains("Muntingia Calabura (Jamaica Cherry-Gasagase)") -> idResult=5
+                listResult.contains("Murraya Koenigii (Curry)") -> idResult=6
+                listResult.contains("Nyctanthes Arbor-tristis (Parijata)") -> idResult=7
+                listResult.contains("Ocimum Tenuiflorum (Tulsi)") -> idResult=8
+                listResult.contains("Piper Betle (Betel)") -> idResult=9
+                listResult.contains("Psidium Guajava (Guava)") -> idResult=10
+            }
+            val intent = Intent(this,DetailActivity::class.java)
+            intent.putExtra(DetailActivity.EXTRA_ID,idResult.toString())
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun setLabel(entries: List<String?>?) {
@@ -75,4 +96,5 @@ class MlActivity : AppCompatActivity() {
             classitext!!.append(entry)
         }
     }
+
 }
