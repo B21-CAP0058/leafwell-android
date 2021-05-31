@@ -53,13 +53,13 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
-    override fun onStart() {
-        super.onStart()
-
-        if(!SharedPrefManager.getInstance(this).isLoggedIn){
-            val intent = Intent(applicationContext, LoginActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
-        }
-    }
+//    override fun onStart() {
+//        super.onStart()
+//
+//        if(!SharedPrefManager.getInstance(this).isLoggedIn){
+//            val intent = Intent(applicationContext, LoginActivity::class.java)
+//            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+//            startActivity(intent)
+//        }
+//    }
 }

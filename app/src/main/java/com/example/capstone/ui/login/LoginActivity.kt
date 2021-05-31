@@ -8,7 +8,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.capstone.MainActivity
-import com.example.capstone.data.ApiConfig
+import com.example.capstone.data.network.ApiConfig
 import com.example.capstone.data.SharedPrefManager
 import com.example.capstone.data.UserResponse
 import com.example.capstone.databinding.ActivityLoginBinding
@@ -44,7 +44,10 @@ class LoginActivity : AppCompatActivity() {
 
     private fun clickButtonLogin() {
         binding.btnLogin.setOnClickListener {
-            loginUser()
+//            loginUser()
+//            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -94,16 +97,16 @@ class LoginActivity : AppCompatActivity() {
             })
 
     }
-    override fun onStart() {
-        super.onStart()
-
-        if(SharedPrefManager.getInstance(this).isLoggedIn){
-            val intent = Intent(applicationContext, MainActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-
-            startActivity(intent)
-        }
-    }
+//    override fun onStart() {
+//        super.onStart()
+//
+//        if(SharedPrefManager.getInstance(this).isLoggedIn){
+//            val intent = Intent(applicationContext, MainActivity::class.java)
+//            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+//
+//            startActivity(intent)
+//        }
+//    }
 
 
 }
