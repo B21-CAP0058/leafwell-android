@@ -83,13 +83,22 @@ class MlActivity : AppCompatActivity() {
                 listResult.contains("Piper Betle (Betel)") -> idResult=9
                 listResult.contains("Psidium Guajava (Guava)") -> idResult=10
                 else ->{
+                    
                     Toast.makeText(applicationContext, "Maaf tidak bisa diklasifikasi,ulangi", Toast.LENGTH_SHORT).show()
                 }
             }
-            val intent = Intent(this,DetailActivity::class.java)
-            intent.putExtra(DetailActivity.EXTRA_ID,idResult.toString())
-            startActivity(intent)
-            finish()
+            
+            if(idResult !=0){
+                val intent = Intent(this,DetailActivity::class.java)
+                intent.putExtra(DetailActivity.EXTRA_ID,idResult.toString())
+                startActivity(intent)
+                finish()
+            }else{
+                /*val intent = Intent(this,DetailActivity::class.java)
+                intent.putExtra(DetailActivity.EXTRA_ID,idResult.toString())
+                startActivity(intent)
+                finish() */
+            }
         }
     }
 
