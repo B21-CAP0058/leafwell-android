@@ -1,13 +1,23 @@
 package com.example.capstone.ui.home
 
+import android.Manifest
+import android.app.Activity
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
+import android.provider.MediaStore
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.capstone.MlActivity
+import com.example.capstone.URIPathHelper
 import com.example.capstone.databinding.FragmentHomeBinding
+import com.example.capstone.ui.home.choicedialog.ChoiceFragment
 import com.example.capstone.ui.searchmanual.SearchManualActivity
 
 class HomeFragment : Fragment() {
@@ -23,21 +33,36 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        homeViewModel =ViewModelProvider(this).get(HomeViewModel::class.java)
+    ): View {
+        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        val choiceFragment = ChoiceFragment()
+        try {
+            val message = requireArguments().getString("edittext")
+            if (message != null) {
+                //  txtMessageF.setText(message)
+            }
+        } catch (ex: Exception) {
+            ex.printStackTrace()
+        }
+        
         binding.cvMenu1.setOnClickListener {
             val intent = Intent(context, SearchManualActivity::class.java)
             startActivity(intent)
         }
-        val root: View = binding.root
-        return root
 
+        binding.cvMenu2.setOnClickListener {
+//            ChoiceFragment().show(requireActivity().supportFragmentManager,"ChoiceFragment")
+            startActivity(Intent(context,MlActivity::class.java))
+        }
 
+        return binding.root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+
+
 }

@@ -9,9 +9,35 @@
     android:orientation="vertical">
 
     <SearchView
+        android:id="@+id/sv_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"/>
+        android:queryHint="Search Here"
+        android:iconifiedByDefault="false"
+        android:layout_marginBottom="16dp"/>
+
+<!--    <LinearLayout-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:weightSum="10">-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/et_search"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="10" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/btn_search"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="2"-->
+<!--            android:text="Search"-->
+<!--            android:textAllCaps="false"-->
+<!--            android:layout_gravity="center_vertical"/>-->
+
+<!--    </LinearLayout>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_itemList"

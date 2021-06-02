@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Capstone</string>
+    <string name="app_name">Leafwell</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -10,4 +10,16 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="login">Login</string>
+    <string name="password">password</string>
+    <string name="email">email</string>
+    <string name="welcome">Welcome</string>
+    <string name="signup">Don\'t have an account?\nSign Up Here</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="logo_desc">logo</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="createAccount">Create New Account</string>
+    <string name="username">username</string>
+    <string name="register">Register</string>
 </resources>
