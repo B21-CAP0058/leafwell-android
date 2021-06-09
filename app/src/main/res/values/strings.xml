@@ -22,4 +22,11 @@
     <string name="createAccount">Create New Account</string>
     <string name="username">username</string>
     <string name="register">Register</string>
+    <string name="deskripsi">Deskripsi</string>
+    <string name="khasiat">Khasiat</string>
+    <string name="cara_mengolah">Cara Mengolah</string>
+    <string name="menu_1">Pencarian \n Manual</string>
+    <string name="menu_2">Identifikas \n Ranaman</string>
+    <string name="click_below_to_select_a_image">Tap kotak di bawah untuk memilih gambar</string>
+    <string name="klasifikasi">Klasifikasi</string>
 </resources>

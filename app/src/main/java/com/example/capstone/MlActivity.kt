@@ -12,6 +12,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.example.capstone.ui.detail.DetailActivity
@@ -83,7 +84,6 @@ class MlActivity : AppCompatActivity() {
                 listResult.contains("Piper Betle (Betel)") -> idResult=9
                 listResult.contains("Psidium Guajava (Guava)") -> idResult=10
                 else ->{
-                    
                     Toast.makeText(applicationContext, "Maaf tidak bisa diklasifikasi,ulangi", Toast.LENGTH_SHORT).show()
                 }
             }
