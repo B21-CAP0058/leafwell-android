@@ -1,5 +1,6 @@
 # LeafWell
 ## Medicinal Plant Identifier
+### ver. 1.0.0
 
 Android Mobile Application built Kotlin for identifying medicinal plant by image of the leaf using TensorFlow Lite for machine learning model and Retrofit for sending-retrieving data from and to API.
 
