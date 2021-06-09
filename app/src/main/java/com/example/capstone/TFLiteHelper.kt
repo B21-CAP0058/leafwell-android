@@ -91,21 +91,21 @@ class TFLiteHelper internal constructor(private val context: Activity) {
             labels!!, probabilityProcessor!!.process(outputProbabilityBuffer)
         )
             .mapWithFloatValue
-        
-        if( ( (labeledProbability.values < 1) && (labeledProbability.value >0))) {
-            val maxValueInMap = Collections.max(labeledProbability.values)
-
-            val result: MutableList<String> = ArrayList()
 
 
-            for ((key, value) in labeledProbability) {
-                if (value == maxValueInMap) {
+        val maxValueInMap = Collections.max(labeledProbability.values)
 
-                    result.add(key)
-                }
-               }
-           
-        }  return result
+        val result: MutableList<String> = ArrayList()
+
+
+        for ((key, value) in labeledProbability ) {
+            if (value == maxValueInMap && value > 0.003) {
+
+                result.add(key)
+            }
+        }
+
+        return result
     }
 
     private val preprocessNormalizeOp: TensorOperator

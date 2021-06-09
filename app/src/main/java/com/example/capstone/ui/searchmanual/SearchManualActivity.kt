@@ -3,6 +3,7 @@ package com.example.capstone.ui.searchmanual
 import android.os.Bundle
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.capstone.ListItemAdapter
@@ -51,8 +52,12 @@ class SearchManualActivity : AppCompatActivity() {
 
     private fun listItems() {
         viewModel.getHerbs().observe(this, { herbs ->
-            listAdapter.setItem(herbs)
-            listAdapter.notifyDataSetChanged()
+            if(herbs!=null){
+                binding.progressBar.isVisible = false
+                listAdapter.setItem(herbs)
+                listAdapter.notifyDataSetChanged()
+            }
+
         })
     }
 
